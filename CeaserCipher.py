@@ -1,4 +1,3 @@
-
 def encryption(key,plaintext):
     plaintext=plaintext.lower()
     
