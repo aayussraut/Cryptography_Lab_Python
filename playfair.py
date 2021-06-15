@@ -27,8 +27,7 @@ def encryption(matrix,plainText):
     #replacing j with i
     if 'j' in plainText:
         plainText=plainText.replace('j','i')
-    print(plainText)
-
+    
     #finding row and column
     for s in range(0,len(plainText),2):
         row1,column1=find_index(matrix,plainText[s])
@@ -44,7 +43,7 @@ def encryption(matrix,plainText):
             cipherText.append(matrix[row1][column2])
             cipherText.append(matrix[row2][column1])
     
-    print(''.join(cipherText))
+    print("\nCipher Text: "+''.join(cipherText))
 
 #decrypting cipherText
 def decryption(matrix,cipherText):
@@ -63,9 +62,7 @@ def decryption(matrix,cipherText):
             plainText.append(matrix[row1][column2])
             plainText.append(matrix[row2][column1])
     
-    print(''.join(plainText))
-
-
+    print("\nPlain Text: "+''.join(plainText))
 
 key=input("\nEnter your key: ")
 result=[]
