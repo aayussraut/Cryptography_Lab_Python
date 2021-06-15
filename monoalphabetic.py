@@ -1,35 +1,30 @@
 def encryption(code,plaintext):
     plaintext=plaintext.lower()
-    
     cipherText=''
     for i in range(len(plaintext)):
-
-        print(plaintext[i])
         if plaintext[i] ==' ':
-
             cipherText=cipherText+plaintext[i]
         else:
             cipherText+=code[plaintext[i]]
        
-    return cipherText
+    print("\nCipher Text: "+cipherText);
 
 def decryption(code,cipherText):
-
     cipherText=cipherText.lower()
-    
     plainText=''
     for i in range(len(cipherText)):
         if cipherText[i] ==' ':
             plainText=plainText+cipherText[i]
         else:
-            plainText=plainText+get_key(cipherText[i])
+            plainText=plainText+get_key(code,cipherText[i])
         
-    return plainText;
+    print("\nPlain Text: "+plainText);
 
-def get_key(val): # used to get key using value from dict
+def get_key(code,val): # used to get key using value from dict
     for key, value in code.items():
          if val == value:
              return key
+
 
 normalChar = "abcdefghijklmnopqrstuvwxyz"
 codedChar = "qwertyuiopasdfghjklzxcvbnm"
@@ -40,8 +35,14 @@ code={} # dict of normalChar and codedChar
 for i in range(26):
     code[normalChar[i]]=codedChar[i]
 
-plaintext='Hello World'
-cipherText1=encryption(code,plaintext)
-print(cipherText1)
-plainText1=decryption(code,cipherText1)
-print(plainText1)
+choice = int(input("\nEnter your choice:\n1. Encrypt\n2. Decrypt\n3. Exit\n"))
+if choice == 1:
+    plainText=input("\nEnter plain text: ")
+    encryption(code,plainText)
+elif choice == 2:
+    cipherText=input("\nEnter cipher text: ")
+    decryption(code,cipherText)
+elif choice == 3:
+    exit()
+else:
+    print("Choose a correct Number.")
