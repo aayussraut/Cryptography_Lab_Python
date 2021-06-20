@@ -5,3 +5,7 @@ Programs of Cryptography
 - Monoalphabetic Cipher
 
 - Playfair Cipher
+
+- Vigenere Cipher
+
+- One Time Pad
