@@ -49,4 +49,3 @@ plainText=input("\nEnter plain text: ")
 key=keyGen(plainText)
 cipherText=encryption(key,plainText)
 decryption(key,cipherText)
-#
