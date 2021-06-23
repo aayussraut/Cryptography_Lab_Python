@@ -17,7 +17,7 @@ def encryption(key,plaintext):
         if plaintext[i] ==' ':
             cipherText=cipherText+plaintext[i]
         else:
-            encrypt= chr((ord(plaintext[i])-ord(base)+key-ord(base))%26 +ord(base))
+            encrypt= chr((ord(plaintext[i])-ord(base)+ord(key[i])-ord(base))%26 +ord(base))
             cipherText=cipherText+ (encrypt)
        
     print("\nCipher Text: "+cipherText);
@@ -32,8 +32,13 @@ def decryption(key,cipherText):
         if cipherText[i] ==' ':
             plainText=plainText+cipherText[i]
         else:
-            encrypt= chr((ord(cipherText[i])-ord(base)-key)%26 +ord(base))
-            plainText= plainText+ (encrypt)
+            if ord(cipherText[i])-ord(base)-ord(key[i])-ord(base)<0:
+                decrypt= chr((ord(cipherText[i])-ord(key[i])+26)%26 +ord(base))
+                plainText= plainText+ decrypt
+            else:
+                decrypt= chr((ord(cipherText[i])-ord(key[i]))%26 +ord(base))
+                plainText= plainText+ decrypt
+
        
     print("\nPlain Text: "+plainText);
 
